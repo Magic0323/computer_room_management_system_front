@@ -1,0 +1,24 @@
+{
+  "name": "computer_room_management_system_front",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "homepage": ".",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "electron .",
+    "build": "electron-packager ./ electronAppV2.0 --platform=win32 --arch=x64 --out ./outApp --overwrite",
+    "package": "electron-packager ./ myapp --all --out ./outApp --overwrite"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^21.3.1",
+    "electron-packager": "^17.1.1",
+    "electron-reloader": "^1.2.3"
+  },
+  "dependencies": {
+    "@electron/remote": "^2.0.8",
+    "systeminformation": "^5.16.6"
+  }
+}
