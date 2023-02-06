@@ -1,9 +1,16 @@
-const { app, BrowserWindow } = require("electron");
+const { app, BrowserWindow, ipcMain } = require("electron");
 const path = require("path");
 
+const exeName = path.basename(process.execPath);
+
+
+app.setLoginItemSettings({
+  openAtLogin: true,
+});
+
 // 热加载
-const reloader = require("electron-reloader");
-reloader(module);
+// const reloader = require("electron-reloader");
+// reloader(module);
 
 // 监听初始化完成的生命周期
 app.on("ready", () => {
@@ -28,4 +35,28 @@ app.on("ready", () => {
 
   // 菜单栏
   require("./menu.js");
+
+  // 获取可执行文件位置
+  const ex = process.execPath;
+
+  // 定义事件，渲染进程中直接使用
+
+  // 开启 开机自启动
+  ipcMain.on('openAutoStart', () => {
+    console.log('updateExe', ex)
+    app.setLoginItemSettings({
+      openAtLogin: true,
+      path: ex,
+      args: []
+    });
+  });
+  // 关闭 开机自启动
+  ipcMain.on('closeAutoStart', () => {
+    app.setLoginItemSettings({
+      openAtLogin: false,
+      path: ex,
+      args: []
+    });
+  })
+
 });

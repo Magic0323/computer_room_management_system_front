@@ -7,8 +7,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "electron .",
-    "build": "electron-packager ./ electronAppV2.0 --platform=win32 --arch=x64 --out ./outApp --overwrite",
-    "package": "electron-packager ./ myapp --all --out ./outApp --overwrite"
+    "build": "electron-packager ./ electronAppV0.1 --platform=win32 --arch=x64 --out ./outApp --overwrite",
+    "package": "electron-packager ./ myapp --all --out ./outApp --overwrite",
+    "dist":"electron-builder --win --x64"
   },
   "author": "",
   "license": "ISC",

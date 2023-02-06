@@ -1,5 +1,10 @@
-const { BrowserWindow } = require("@electron/remote");
+const { BrowserWindow, ipcRenderer } = require("@electron/remote");
 const { shell, getCurrentWindow } = require("@electron/remote");
+
+// ipcRenderer.send('openAutoStart')
+
+// ipcRenderer.send('closeAutoStart')
+
 
 // 新建窗口
 const newWindow = document.querySelector(".new-window");
